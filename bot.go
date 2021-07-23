@@ -582,33 +582,32 @@ func (b *Bot) handle(end string, m *Message) bool {
 func (b *Bot) handleMedia(m *Message) bool {
 	switch {
 	case m.Photo != nil:
-		b.handle(OnPhoto, m)
+		return b.handle(OnPhoto, m)
 	case m.Voice != nil:
-		b.handle(OnVoice, m)
+		return b.handle(OnVoice, m)
 	case m.Audio != nil:
-		b.handle(OnAudio, m)
+		return b.handle(OnAudio, m)
 	case m.Animation != nil:
-		b.handle(OnAnimation, m)
+		return b.handle(OnAnimation, m)
 	case m.Document != nil:
-		b.handle(OnDocument, m)
+		return b.handle(OnDocument, m)
 	case m.Sticker != nil:
-		b.handle(OnSticker, m)
+		return b.handle(OnSticker, m)
 	case m.Video != nil:
-		b.handle(OnVideo, m)
+		return b.handle(OnVideo, m)
 	case m.VideoNote != nil:
-		b.handle(OnVideoNote, m)
+		return b.handle(OnVideoNote, m)
 	case m.Contact != nil:
-		b.handle(OnContact, m)
+		return b.handle(OnContact, m)
 	case m.Location != nil:
-		b.handle(OnLocation, m)
+		return b.handle(OnLocation, m)
 	case m.Venue != nil:
-		b.handle(OnVenue, m)
+		return b.handle(OnVenue, m)
 	case m.Dice != nil:
-		b.handle(OnDice, m)
+		return b.handle(OnDice, m)
 	default:
 		return false
 	}
-	return true
 }
 
 // Send accepts 2+ arguments, starting with destination chat, followed by
